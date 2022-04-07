@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>your's today</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="login">
+      <img src="/momentum/img/sparkle.png">
+      <img src="/momentum/img/sparkle.png">
+      <form class="login-form">
+        <h1><input type="text" required minlength="2" maxlength="10">'s today</h1>
+      </form>
+      <i class="fa-thin fa-sparkles"></i>
+      <i class="fa-solid fa-sparkles"></i>
+    </div>
+  </header>
+  <article>
+    <div class="todo">
+      <h2 class="todo-title">my todo list</h2>
+      <form class="todo-form">
+        <input type="text" placeholder="Type your plan!">
+        <ul class="todo-list">
+          <li>
+            <button class="todo-finish__btn"><span></span></button>
+            test1
+            <button class="todo-delete__btn"><span></span></button>
+          </li>
+          <li>
+            <button class="todo-finish__btn"><span></span></button>
+            테스트2
+            <button class="todo-delete__btn"><span></span></button>
+          </li>
+          <li>
+            <button class="todo-finish__btn"><span></span></button>
+            todo list 테스트입니다.
+            <button class="todo-delete__btn"><span></span></button>
+          </li>
+          <li>
+            <button class="todo-finish__btn"><span></span></button>
+            todo list 테스트입니다.
+            <button class="todo-delete__btn"><span></span></button>
+          </li>
+          <li>
+            <button class="todo-finish__btn"><span></span></button>
+            todo list 테스트입니다. todo list 테스트입니다. todo list 테스트입니다. todo list 테스트입니다. todo list 테스트입니다.
+            <button class="todo-delete__btn"><span></span></button>
+          </li>
+          <li>
+            <button class="todo-finish__btn"><span></span></button>
+            todo list 테스트입니다.
+            <button class="todo-delete__btn"><span></span></button>
+          </li>
+        </ul>
+      </form>
+    </div>
+    <div class="info">
+      <span class="clock"></span>
+      <span class="date"></span>
+      <span class="weather">Seoul = Clear 20˚C</span>
+    </div>
+    <div class="music">
+      <div class="music__btn">
+        <a href="" target="_blank"><span><i class="fa fa-soundcloud"></i></span></a>
+      </div>
+      <div class="music__inner">
+        <span class="music__inner__artist"></span>
+        <span class="music__inner__title"></span>
+      </div>
+    </div>
+  </article>
+
+  <script src="js/clock.js"></script>
+  <script src="js/music.js"></script>
+</body>
+</html>
