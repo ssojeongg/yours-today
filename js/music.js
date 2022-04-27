@@ -2,41 +2,67 @@ const musics = [
   {
     artist: "SUNWOO",
     title: "광합성",
-    url: "official_theboyz/to-theb-from-sunwoo",
   },
   {
     artist: "SUNWOO",
     title: "Berry",
-    url: "official_theboyz/like-a-birthday-cake",
   },
   {
     artist: "YERINB",
     title: "La La La Love Song",
-    url: "eyriej/yerin-la-la-la-love-song",
   },
   {
     artist: "Mariya Takeuchi",
     title: "Plastic Love",
-    url: "user-542419308/plastic-love",
   },
   {
     artist: "Her Majesty's Sound",
     title: "Ole devil called love",
-    url: "hermajestyssound/ole-devil-called-love",
   },
   {
     artist: "Olivia Rodrigo",
     title: "deja vu",
-    url: "oliviarodrigo/deja-vu",
+  },
+  {
+    artist: "Red Velvet",
+    title: "BAMBOLEO",
   },
 ]
 
 const artist = document.querySelector(".music__inner__artist");
 const title = document.querySelector(".music__inner__title");
-const todaysMusic = musics[Math.floor(Math.random() * musics.length)];
+const audio = document.querySelector("audio");
+let todaysMusic = musics[Math.floor(Math.random() * musics.length)];
 
 artist.innerText = todaysMusic.artist;
 title.innerText = todaysMusic.title;
+audio.src = `/yours-today/sound/${todaysMusic.title}.mp3`;
 
-const musicUrl = document.querySelector("a");
-musicUrl.href = `http://soundcloud.com/${todaysMusic.url}`;
+const btnPlay = document.querySelector(".play");
+const btnPause = document.querySelector(".pause");
+
+function playAudio() {
+  audio.play();
+  btnPlay.style.display = "none";
+  btnPause.style.display = "block";
+}
+
+btnPlay.addEventListener("click", playAudio);
+
+function pauseAudio() {
+  audio.pause();
+  btnPause.style.display = "none";
+  btnPlay.style.display = "block";
+}
+
+btnPause.addEventListener("click", pauseAudio);
+
+function nextTrack() {
+  todaysMusic = musics[Math.floor(Math.random() * musics.length)];
+  audio.src = `/yours-today/sound/${todaysMusic.title}.mp3`;
+  artist.innerText = todaysMusic.artist;
+  title.innerText = todaysMusic.title;
+  setTimeout(playAudio, 2000);
+}
+
+audio.addEventListener("ended", nextTrack);
