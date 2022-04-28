@@ -8,7 +8,7 @@ const musics = [
     title: "Berry",
   },
   {
-    artist: "YERINB",
+    artist: "Baek Yerin",
     title: "La La La Love Song",
   },
   {
@@ -46,7 +46,6 @@ function playAudio() {
   btnPlay.style.display = "none";
   btnPause.style.display = "block";
 }
-
 btnPlay.addEventListener("click", playAudio);
 
 function pauseAudio() {
@@ -54,7 +53,6 @@ function pauseAudio() {
   btnPause.style.display = "none";
   btnPlay.style.display = "block";
 }
-
 btnPause.addEventListener("click", pauseAudio);
 
 function nextTrack() {
@@ -62,7 +60,30 @@ function nextTrack() {
   audio.src = `/yours-today/sound/${todaysMusic.title}.mp3`;
   artist.innerText = todaysMusic.artist;
   title.innerText = todaysMusic.title;
-  setTimeout(playAudio, 2000);
+  setTimeout(playAudio, 3000);
+}
+audio.addEventListener("ended", nextTrack);
+
+const progressBar = document.querySelector(".progress-bar");
+const currentTime = document.querySelector(".current-time");
+const durationTime = document.querySelector(".duration-time");
+
+function formatTime(sec) {
+  let minutes = Math.floor(sec / 60);
+  let seconds = String(Math.floor(sec - minutes * 60)).padStart(2, "0");
+  return `${minutes}:${seconds}`
 }
 
-audio.addEventListener("ended", nextTrack);
+function progressValue() {
+  progressBar.max = audio.duration;
+  progressBar.value = audio.currentTime;
+  currentTime.innerText = formatTime(audio.currentTime);
+  durationTime.innerText = formatTime(audio.duration);
+}
+setInterval(progressValue, 1000);
+
+
+function changeProgressBar() {
+  audio.currentTime = progressBar.value;
+}
+progressBar.addEventListener("click", changeProgressBar);
